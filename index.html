@@ -1,110 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Red Dead Redemption</title>
-	<style> .oculto{
-        display: none;
-    }
-
-
-		body {
-			background-color: rgb(143, 10, 10);
-			font-family: Arial, sans-serif;
-			margin: 0;
-			padding: 0;
-		}
-		h1 {
-			color: #000;
-			font-size: 36px;
-			text-align: center;
-			padding: 50px 0;
-			text-shadow: 2px 2px #fff;
-		}
-		.container {
-			width: 80%;
-			margin: 0 auto;
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
-			align-items: center;
-			padding: 50px 0;
-		}
-		.card {
-			background-color: #fff;
-			box-shadow: 4px 4px 8px rgba(0,0,0,0.4);
-			border-radius: 10px;
-			padding: 30px;
-			margin: 20px;
-			width: 300px;
-			text-align: center;
-			transition: box-shadow 0.3s ease-in-out;
-		}
-		.card:hover {
-			box-shadow: 6px 6px 12px rgba(0,0,0,0.6);
-		}
-		.card:hover h2, .card:hover p {
-			text-shadow: 2px 2px #000;
-			color: #fff;
-		}
-		h2 {
-			font-size: 24px;
-			color: #000;
-			margin-bottom: 20px;
-			text-shadow: 2px 2px #fff;
-		}
-		p {
-			font-size: 18px;
-			color: #666;
-			text-shadow: 2px 2px #fff;
-		}
-		.shadow {
-			box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-		}
-	</style>
-   <script>
-    function cambiar(){
-        document.getElementById('body').style.backgroundColor= 'rgb(0,3,0,84)';
-    }
-    var imagenes = [
-        "img/1.jpg",
-		 "img/2.jpg",
-		 "img/3.jpg",
-		 "img/4.jpg",
-		 "img/5.jpg"
-		   ];
-		  
-		   var indiceActual = 0;
-
-function cambiarImagenSiguiente() {
-  indiceActual = (indiceActual + 1) % imagenes.length;
-  cambiarImagen(indiceActual);
-		   }
-		 
-		   function cambiarImagenAnterior() {
-      indiceActual = (indiceActual - 1 + imagenes.length) % imagenes.length;
-      cambiarImagen(indiceActual);
-		   }
-		   function cambiarImagen(indice){
-			var imagen= document.getElementById("imagenCambiante");
-			imagen.src = imagenes[indice];
-		   }
-		   
-		 
-		 </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabajo 7</title>
 </head>
-<body id="body">
-    <!--<button onclick="cambiar();">Cambiar Fondo</button>-->
-    <div class="container">
-<div class="card shadow">
-			<h2>Coches</h2>
-			<img id="imagenCambiante" src="img/1.jpg" alt="Imagen Inicial" width="250px">
-            <button onclick="cambiarImagenAnterior()">Regresar imagen</button>
-            <button onclick="cambiarImagenSiguiente()">Siguiente imagen</button>
-            </script>
-    		</div>
+<script>
+     function calcularEdad() {
+      var fechaNacimiento = document.getElementById('fechaNacimiento').value;
+      var hoy = new Date();
+      var fechaNac = new Date(fechaNacimiento);
+      var edad = hoy.getFullYear() - fechaNac.getFullYear();
+
+      if (hoy.getMonth() < fechaNac.getMonth() || (hoy.getMonth() === fechaNac.getMonth() && hoy.getDate() < fechaNac.getDate())) {
+        edad--;
+      }
+      document.getElementById('resultado').textContent = "La edad actual es: " + edad;
+    }
+</script>
+<body>
+    <h1>Formulario</h1>
+    <form action="newUser.html" method="get">
+        <label>Nombres:</label><input type="text" name="nombre"><br>
+        <label>Apellidos:</label><input type="text" name="apellidos"><br>
+        <label>Correo:</label><input type="text" name="correo"><br>
+        
+        <label for="fecha-nacimiento">Fecha de nacimiento:</label><br>
+        <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" required><br>
+    
+
+        <label>Teléfono:</label><input type="text" name="telefono"><br>
+        <label>Usuario:</label><input type="text" name="usuario"><br>
+        
+        <label for="contraseña">Contraseña:</label><br>
+        <input type="password" id="contraseña" name="contraseña" required><br>
+        <label>Repetir contraseña:</label><input type="password" name="contraseña2"><br>
+        
+
+        <input type="submit" value="Registrarse">
+    
+
+      </form>
 
 
-
-	</div>
 </body>
 </html>
